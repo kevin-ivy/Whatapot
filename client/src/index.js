@@ -6,8 +6,8 @@ import { Container, Header, Message, Segment } from "semantic-ui-react";
 // Don't forget to setyp required CSS!
 import "pure-react-carousel/dist/react-carousel.es.css";
 
-import CardCarousel from "./examples/CardCarousel";
-import ImageCarousel from "./examples/ImageCarousel";
+import CardCarousel from "./components/Jumbotron/CardCarousel";
+import ImageCarousel from "./components/Jumbotron/ImageCarousel";
 
 function App() {
     return (
