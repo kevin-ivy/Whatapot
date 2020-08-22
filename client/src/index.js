@@ -1,58 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Container, Header, Message, Segment } from "semantic-ui-react";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'semantic-ui-css/semantic.min.css';
 
-// Heads up!
-// Don't forget to setyp required CSS!
-import "pure-react-carousel/dist/react-carousel.es.css";
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-import CardCarousel from "./components/Jumbotron/CardCarousel";
-import ImageCarousel from "./components/Jumbotron/ImageCarousel";
+ReactDOM.render(<App />, document.getElementById('root'));
 
-function App() {
-    return (
-        <Container style={{ margin: 20 }}>
-            <Header as="h1" dividing>
-                Carousels with Semantic UI React
-      </Header>
-            <Message info>
-                Semantic UI React does not provide any carousel component. In this
-                prototype we want to show how you can implement your own carousel with
-        SUIR and{" "}
-                <a
-                    href="https://www.npmjs.com/package/pure-react-carousel"
-                    target="_blank"
-                >
-                    <code>pure-react-carousel</code>
-                </a>
-        .
-      </Message>
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();
 
-            <Segment attached="top">
-                <Header as="h2" content="Card carousel" />
-                <p>
-                    This prototype features how to create a carousel with the{" "}
-                    <code>Card</code> component, take a look into{" "}
-                    <code>examples/CardCarousel</code> to get more details.
-        </p>
-            </Segment>
-            <Segment attached="bottom">
-                <CardCarousel />
-            </Segment>
-
-            <Segment attached="top">
-                <Header as="h2" content="Image carousel" />
-                <p>
-                    This prototype features how to create a carousel with images, take a
-          look into <code>examples/ImageCarousel</code> to get more details.
-        </p>
-            </Segment>
-            <Segment attached="bottom">
-                <ImageCarousel />
-            </Segment>
-        </Container>
-    );
-}
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
