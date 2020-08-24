@@ -33,7 +33,7 @@ const recipeSchema = new Schema(
             required: true
         },
         createdAt: {
-            type: date,
+            type: Date,
             default: Date.now,
             get: timestamp => moment(timestamp).format('MMM Do, YYYY [at] hh:mm a')
         },
