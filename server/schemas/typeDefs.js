@@ -16,13 +16,12 @@ const typeDefs = gql`
         _id: ID
         name: String
         description: String
-        incredients: [String]
+        ingredients: [String]
         steps: [String]
         createdAt: String
         username: String
         reviewCount: Int
         reviews: [Review]
-        rating: Int
     }
 
     type Review {

@@ -16,7 +16,8 @@ const userSchema = new Schema (
         },
         password: {
             type: String,
-            required: true
+            required: true,
+            minlength: 8
         },
         //Set recipes to an array of data from recipeSchema
         recipes: [
