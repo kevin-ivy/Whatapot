@@ -42,6 +42,74 @@ const resolvers = {
             }
             throw new AuthenticationError('Not logged in');
         }
+    },
+    Mutation: {
+        //log into the platform
+        login: async (parent, {email, password}) => {
+            const user = await User.findOne({email});
+
+            if (!user) {
+                throw new AuthenticationError('No user found');
+            }
+
+            const correctPw = await user.isCorrectPassword(password);
+            if (!correctPw) {
+                throw new AuthenticationError('Incorrect password');
+            }
+
+            const token = signToken(user);
+            return {token, user};
+        },
+
+        //create a new user
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
+            const token = signToken(user);
+
+            return {token, user};
+        },
+        
+        //add a new recipe
+        addRecipe: async(parent, args, context) => {
+            if (context.user) {
+                const recipe = await Recipe.create({...args, username: context.user.username});
+
+                await User.findByIdAndUpdate(
+                    {_id: context.user._id},
+                    {$push: {recipes: recipe._id}},
+                    {new: true}
+                );
+
+                return recipe
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+
+        //add review to recipe
+        addReview: async(parent, {recipeId, reviewBody, recommended}, context) => {
+            if (context.user) {
+                const updatedRecipe = await Recipe.findOneAndUpdate(
+                    {_id: recipeId},
+                    {$push: {reviews: {reviewBody, recommended, username: context.user.username}}},
+                    {new: true, runValidators: true}
+                );
+
+                return updatedRecipe;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+
+        addFriend: async(parent, {friendId}, context) => {
+            if (context.user) {
+                const updatedUser = await User.findOneAndUpdate(
+                    {_id: context.user._id},
+                    {$addToSet: {friends: friendId}},
+                    {new: true}
+                ).populate('friends');
+                return updatedUser;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        }
     }
 };
 

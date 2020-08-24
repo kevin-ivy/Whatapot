@@ -44,7 +44,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         addRecipe(name: String!, description: String!, ingredients: [String!], steps: [String!]): Recipe
-        addReview(recipeId: ID!, review2Body: String!, recommended: Boolean!): Recipe
+        addReview(recipeId: ID!, reviewBody: String!, recommended: Boolean!): Recipe
         addFriend(friendId: ID!): User
     }
 
