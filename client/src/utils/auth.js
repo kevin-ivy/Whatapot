@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import decode from 'jwt-decode';
+
+>>>>>>> 67f634cb3fab3437953e4c721d1cbb0aecc8c6ca
 class AuthService {
     getProfile() {
         return decode(this.getToken());
