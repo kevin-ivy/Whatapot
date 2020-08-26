@@ -1,25 +1,5 @@
 import gql from 'graphql-tag';
 
-<<<<<<< HEAD
-
-export const QUERY_USER = gql`
-{
-    user {
-        firstName
-        lastName
-        username
-        email
-        tasks {
-            _id
-            taskName
-        }
-        comments {
-            _id
-            commentBody
-        }
-    }
-}`;
-=======
 export const QUERY_RECIPES = gql `
     query recipes($username: String) {
         recipes(username: $username) {
@@ -123,4 +103,3 @@ export const QUERY_ME_BASIC = gql `
         }
     }
 `;
->>>>>>> 67f634cb3fab3437953e4c721d1cbb0aecc8c6ca
