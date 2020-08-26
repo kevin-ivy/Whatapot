@@ -1,38 +1,26 @@
-import React, { Fragment } from 'react';
-import { Container } from 'semantic-ui-react';
-import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "@apollo/react-hooks";
-import { BrowserRouter as Router, Route, } from "react-router-dom";
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-// import Home from './src/pages/Home';
-
-
-const client = new ApolloClient({
-    request: (operation) => {
-        const token = localStorage.getItem("id_token");
-        operation.setContext({
-            headers: {
-                authorization: token ? `Bearer ${token}` : "",
-            },
-        });
-    },
-    uri: "/graphql",
-});
-
-
-const App = () => (
-    <ApolloProvider client={client}>
-        <Router>
-            <Fragment>
-                <Menu />
-                {/* <Home /> */}
-                <Container>
-                    <Login />
-                </Container>
-            </Fragment>
-        </Router>
-    </ApolloProvider >
-);
-
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
 
 export default App;
