@@ -6,6 +6,7 @@ import ApolloClient from 'apollo-boost';
 
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -29,7 +30,7 @@ function App() {
         <Header />
         <div className='container'>
           <Switch>
-            <Route exact path='/' component={Login}/>
+            <Route exact path='/' component={Home}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={Signup}/>
           </Switch>
