@@ -7,6 +7,7 @@ import ApolloClient from 'apollo-boost';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 const client = new ApolloClient({
   request: operation => {
@@ -33,6 +34,7 @@ function App() {
             <Route exact path='/signup' component={Signup}/>
           </Switch>
         </div>
+        <Footer />
       </Router>
     </ApolloProvider>
   );
