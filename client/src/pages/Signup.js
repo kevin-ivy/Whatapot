@@ -31,7 +31,7 @@ const Signup = (props) => {
     return (
     <main className='d-flex justify-content-center mt-4 p-3 w-100'>
         <div>
-            <div className='card'>
+            <div className='card m-5 w-100'>
                 <h2 className='card-header text-center mb-3'>Join Whatapot</h2>
                 <div className='card-body p-2 m-3'>
                     <form onSubmit={handleFormSubmit}>
