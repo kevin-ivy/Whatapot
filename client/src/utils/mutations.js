@@ -52,7 +52,7 @@ export const ADD_RECIPE = gql `
 `;
 
 export const ADD_REVIEW = gql `
-    addReview($recipeId: ID!, $reviewBody: String!, $recommended: Boolean) {
+    mutation addReview($recipeId: ID!, $reviewBody: String!, $recommended: Boolean) {
         addReview (recipeId: $recipeId, reviewBody: $reviewBody, recommended: $recommended) {
             _id
             reviewCount

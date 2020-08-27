@@ -1,15 +1,40 @@
-import React from 'react';
-import { Button, Form, Grid, Header, Message, Segment, } from 'semantic-ui-react';
+import React, {useState} from 'react';
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import {LOGIN_USER} from '../utils/mutations';
+import {useMutation} from '@apollo/react-hooks'
+import Auth from '../utils/auth';
 
+const Login = (props) => {
+    const [formState, setFormState] = useState({email: '', password:''});
+    const [login, {error}] = useMutation(LOGIN_USER);
 
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+        setFormState({
+            ...formState,
+            [name]: value
+        });
+    };
 
+    //submit login form
+    const handleFormSubmit = async event => {
+        event.preventDefault();
+        try {
+            const {data} = await login({
+                variables: {...formState}
+            });
+            Auth.login(data.login.token);
+        } catch(e) {
+            console.error(e);
+        }
+    };
 
-export default () => (
+    return (
     <Grid centered columns={2}>
         <Grid.Column>
             <Header as="h2" textAlign="center">
                 Login
-      </Header>
+            </Header>
             <Segment>
                 <Form size="large">
                     <Form.Input
@@ -28,7 +53,7 @@ export default () => (
 
                     <Button color="blue" fluid size="large">
                         Login
-          </Button>
+                    </Button>
                 </Form>
             </Segment>
             <Message>
@@ -36,4 +61,7 @@ export default () => (
             </Message>
         </Grid.Column>
     </Grid>
-);
+    );
+};
+
+export default Login;
