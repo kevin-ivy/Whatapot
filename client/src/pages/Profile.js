@@ -1,13 +1,14 @@
 import React from 'react';
 import {Redirect, useParams} from 'react-router-dom';
 import RecipeList from '../components/RecipeList';
+import FriendList from '../components/FriendList';
 import {ADD_FRIEND} from '../utils/mutations';
 import {useQuery, useMutation} from '@apollo/react-hooks';
 import {QUERY_USER, QUERY_ME} from '../utils/queries';
 import Auth from '../utils/auth';
 
 const Profile = () => {
-    const {addFriend} = useMutation(ADD_FRIEND);
+    const [addFriend] = useMutation(ADD_FRIEND);
     const {username: userParam} = useParams();
 
     const {loading, data} = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -22,6 +23,7 @@ const Profile = () => {
     if (loading) {
         return <div>Loading...</div>;
     }
+
     if (!user?.username) {
         return (
             <h4>You need to be logged in to view this page.</h4>
@@ -40,14 +42,14 @@ const Profile = () => {
 
     return (
         <>
-            <div className='row mb-3 justify-content-center w-100'>
+            <div className='row mb-3 w-100'>
                 <div className='col-6'>
                 <h5 className='text-center'>Viewing {userParam ? `${user.username}'s` : `your`} profile.</h5>
                 </div>
-                <div className='col-6'>
+                <div className='col-6 d-flex flex-row-reverse'>
                     { userParam && (
                         <button className='btn btn-info' onClick={handleClick}>
-                            <p className='text-center'>Add Friend</p>
+                            <h5 className='text-center'>Add Friend</h5>
                         </button>
                     )}  
                 </div>
@@ -57,7 +59,11 @@ const Profile = () => {
                     <RecipeList recipes={user.recipes} title={`${user.username}'s Recipes`} />
                 </div>
                 <div className='col-sm-12 col-md-6'>
-                    Friend List
+                    <FriendList
+                        username={user.username}
+                        friendCount={user.friendCount}
+                        friends={user.friends} 
+                    />
                 </div>
             </div>
         </>

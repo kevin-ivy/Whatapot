@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const RecipeList = ({recipes, title}) => {
     if (!recipes.length) {
-        return <h3>No recipes submitted yet.</h3>
+        return <h3 className='mb-3 col-12 text-center'>No recipes submitted yet.</h3>
     }
 
     return (

@@ -34,15 +34,18 @@ const resolvers = {
         //find the current signed in user
         me: async (parent, args, context) => {
             if (context.user) {
-                const userData = await User.findOne({})
+                const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
                     .populate('friends')
                     .populate('recipes');
-                    return userData;
+            
+                return userData;
             }
+        
             throw new AuthenticationError('Not logged in');
-        }
+        },
     },
+
     Mutation: {
         //log into the platform
         login: async (parent, {email, password}) => {
