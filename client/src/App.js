@@ -1,10 +1,11 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import 'semantic-ui-css/semantic.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {ApolloProvider} from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 const client = new ApolloClient({
   request: operation => {
@@ -24,7 +25,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Login/>
+          <Login />
         </div>
       </Router>
     </ApolloProvider>

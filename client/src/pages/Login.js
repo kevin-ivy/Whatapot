@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import {LOGIN_USER} from '../utils/mutations';
 import {useMutation} from '@apollo/react-hooks'
 import Auth from '../utils/auth';
@@ -30,37 +29,39 @@ const Login = (props) => {
     };
 
     return (
-    <Grid centered columns={2}>
-        <Grid.Column>
-            <Header as="h2" textAlign="center">
-                Login
-            </Header>
-            <Segment>
-                <Form size="large">
-                    <Form.Input
-                        fluid
-                        icon="user"
-                        iconPosition="left"
-                        placeholder="Email address"
-                    />
-                    <Form.Input
-                        fluid
-                        icon="lock"
-                        iconPosition="left"
-                        placeholder="Password"
-                        type="password"
-                    />
-
-                    <Button color="blue" fluid size="large">
-                        Login
-                    </Button>
-                </Form>
-            </Segment>
-            <Message>
-                Not registered yet? <a href="#">Sign Up</a>
-            </Message>
-        </Grid.Column>
-    </Grid>
+    <main className='d-flex justify-content-center mt-4 p-3 w-100'>
+        <div>
+            <div className='card'>
+                <h2 className='card-header text-center mb-3'>Login</h2>
+                <div className='card-body p-2 m-3'>
+                    <form onSubmit={handleFormSubmit}>
+                        <div className="form-group">
+                            <input 
+                                className='form-control'
+                                placeholder='Your email'
+                                name='email'
+                                type="email" 
+                                id="email" 
+                                value={formState.email}
+                                onChange={handleChange}/>
+                        </div>
+                        <div className="form-group">
+                            <input 
+                                className='form-control'
+                                placeholder='********'
+                                name='password'
+                                type="password" 
+                                id="password" 
+                                value={formState.password}
+                                onChange={handleChange}/>
+                        </div>
+                        <button type="submit" className="btn btn-info w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+            {error && <div className='mt-1 text-center'>Something went wrong!</div>}
+        </div>
+    </main>
     );
 };
 
