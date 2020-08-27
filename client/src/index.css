@@ -70,27 +70,21 @@ h6 {
 /* h1 {
   font-size: 2.25rem;
 }
-
 h2 {
   font-size: 2rem;
 }
-
 h3 {
   font-size: 1.75rem;
 }
-
 h4 {
   font-size: 1.5rem;
 }
-
 h5 {
   font-size: 1.25rem;
 }
-
 h6 {
   font-size: 1rem;
 }
-
 p {
   font-size: 1.1rem;
   margin-top: 0;
@@ -101,11 +95,9 @@ p {
   text-decoration: none;
   font-weight: bold;
 }
-
 a:hover {
   text-decoration: underline;
 }
-
 header {
   background: var(--dark);
 } */
@@ -142,7 +134,6 @@ img {
 /* span[role="img"] {
   cursor: default;
 }
-
 form {
   width: 40%;
 } */
