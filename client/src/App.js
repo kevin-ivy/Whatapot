@@ -7,6 +7,7 @@ import ApolloClient from 'apollo-boost';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -28,11 +29,12 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Header />
-        <div className='container'>
+        <div className='flex-container m-5 p-5'>
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={Signup}/>
+            <Route exact path='/profile/:username?' component={Profile}/>
           </Switch>
         </div>
         <Footer />
