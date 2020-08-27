@@ -1,7 +1,7 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {ApolloProvider} from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 
 import Login from './pages/Login';
@@ -25,7 +25,15 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Login />
+          <Switch>
+            <Route exact path="/">
+              <Login />
+            </Route>
+            <Route path="/signup">
+              <Signup />
+            </Route>
+          </Switch>
+
         </div>
       </Router>
     </ApolloProvider>
