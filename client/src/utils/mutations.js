@@ -12,14 +12,14 @@ export const LOGIN_USER = gql `
     }
 `;
 
-export const ADD_USER = gql `
+export const ADD_USER = gql`
     mutation addUser($username: String!, $email: String!, $password: String!) {
         addUser(username: $username, email: $email, password: $password) {
-            token
-            user {
-                _id
-                username
-            }
+        token
+        user {
+            _id
+            username
+        }
         }
     }
 `;
@@ -52,7 +52,7 @@ export const ADD_RECIPE = gql `
 `;
 
 export const ADD_REVIEW = gql `
-    addReview($recipeId: ID!, $reviewBody: String!, $recommended: Boolean) {
+    mutation addReview($recipeId: ID!, $reviewBody: String!, $recommended: Boolean) {
         addReview (recipeId: $recipeId, reviewBody: $reviewBody, recommended: $recommended) {
             _id
             reviewCount
