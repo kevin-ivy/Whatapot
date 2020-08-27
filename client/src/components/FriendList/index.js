@@ -11,8 +11,8 @@ const FriendList = ({friendCount, username, friends}) => {
             <h3 className='mb-3 col-12 text-center'>{username}'s {friendCount === 1 ? 'friend' : 'friends'}
             </h3>
             {friends.map(friend => (
-                <button className='btn w-100 display-block mb-2' key={friend._id}>
-                    <Link to={`/profile/${friend.username}`}>{friend.username}</Link>
+                <button className='btn w-25 btn-dark display-block mb-2' key={friend._id}>
+                    <Link to={`/profile/${friend.username}`} className='text-light text-decoration-none'><h5>{friend.username}</h5></Link>
                 </button>
             ))}
         </div>

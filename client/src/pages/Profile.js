@@ -33,7 +33,7 @@ const Profile = () => {
     const handleClick = async () => {
         try {
             await addFriend({
-                variables: {_id: user._id}
+                variables: {id: user._id}
             });
         } catch (e) {
             console.error(e);
@@ -48,7 +48,7 @@ const Profile = () => {
                 </div>
                 <div className='col-6 d-flex flex-row-reverse'>
                     { userParam && (
-                        <button className='btn btn-info' onClick={handleClick}>
+                        <button className='btn btn-dark w-25' onClick={handleClick}>
                             <h5 className='text-center'>Add Friend</h5>
                         </button>
                     )}  
