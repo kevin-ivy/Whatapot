@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import RecipeList from '../components/RecipeList';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_RECIPES } from '../utils/queries';
-import Auth from '../utils/auth';
+// import Auth from '../utils/auth';
 
 const SingleRecipe = props => {
     const { id: recipeId } = useParams();
