@@ -8,8 +8,11 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Create from './pages/Create';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
+
 
 const client = new ApolloClient({
   request: operation => {
@@ -29,12 +32,13 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Header />
-        <div className='flex-container m-5 p-5'>
+        <div className='m-5 p-5'>
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={Signup}/>
             <Route exact path='/profile/:username?' component={Profile}/>
+            <Route exact path='/create' component={Create} />
           </Switch>
         </div>
         <Footer />

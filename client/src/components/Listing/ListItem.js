@@ -1,19 +1,14 @@
 import React from 'react';
 
-class ListItem extends React.Component {
-  constructor(props) {
-    super();
-    console.log(props)
-  }
+function ListItem(props) {
+  return (<li key={props.key}>
+    {props.value}
+    <button className="btn btn-danger"
+      onClick={() => { console.log("Beans") }}>
+      Remove
+    </button>
+  </li>);
 
-  render() {
-    return (<li key={this.props.key}>
-      {this.props.value}
-      <button onClick={() => { this.props.onDelete(this.props) }}>
-        Remove
-      </button>
-    </li>);
-  }
 }
 
 export default ListItem;

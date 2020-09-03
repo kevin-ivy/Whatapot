@@ -43,7 +43,7 @@ export const ADD_RECIPE = gql `
         addRecipe(name: $name, description: $description, ingredients: $ingredients, steps: $steps) {
             _id
             name
-            descriptions
+            description
             ingredients
             steps
             createdAt
