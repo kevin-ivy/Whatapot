@@ -7,6 +7,8 @@ import {useQuery, useMutation} from '@apollo/react-hooks';
 import {QUERY_USER, QUERY_ME} from '../utils/queries';
 import Auth from '../utils/auth';
 
+import {Link} from 'react-router-dom';
+
 const Profile = () => {
     const [addFriend] = useMutation(ADD_FRIEND);
     const {username: userParam} = useParams();
@@ -20,6 +22,7 @@ const Profile = () => {
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return <Redirect to ='/profile'/>
     }
+
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -57,6 +60,7 @@ const Profile = () => {
             <div className='row'>
                 <div className='col-sm-12 col-md-6'>
                     <RecipeList recipes={user.recipes} title={`${user.username}'s Recipes`} />
+                    <Link to="/create"><button>Create Recipe</button></Link>
                 </div>
                 <div className='col-sm-12 col-md-6'>
                     <FriendList
