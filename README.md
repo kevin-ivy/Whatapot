@@ -10,11 +10,13 @@
 This project is a full stack web application using the MERN Stack to allow users to search and share recipes. This application demonstrates skill sets used to refractor an original code using REST APIs into GraphQL with Apollo.  
 
 ## Table of Contents
+* [Live Site](#live_site)
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
 * [Contributing&Questions](#contributing&questions)
-
+## Live Site
+[https://whatapot.herokuapp.com/](https://whatapot.herokuapp.com/)
 ## Installation 
 Clone the repository from GitHub and install dependencies.
 
