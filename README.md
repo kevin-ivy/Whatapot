@@ -5,6 +5,7 @@
 <img src="https://img.shields.io/badge/Javascript-brightgreen"/>
 <img src="https://img.shields.io/badge/Web-Pack-red"/>
 <img src="https://img.shields.io/badge/Node.js-success"/>
+<img src="https://img.shields.io/badge/License-MIT-brightgreen">
 
 ## Description 
 This project is a full stack web application using the MERN Stack to allow users to search and share recipes. This application demonstrates skill sets used to refractor an original code using REST APIs into GraphQL with Apollo.  
@@ -15,14 +16,17 @@ This project is a full stack web application using the MERN Stack to allow users
 * [Usage](#usage)
 * [License](#license)
 * [Contributing&Questions](#contributing&questions)
+
 ## Live Site
-[https://whatapot.herokuapp.com/](https://whatapot.herokuapp.com/)
+[https://enigmatic-escarpment-05976.herokuapp.com/](https://enigmatic-escarpment-05976.herokuapp.com/)
+
 ## Installation 
 Clone the repository from GitHub and install dependencies.
 
 ## Usage 
 This application will allow users to search for books. Users are able to sign up upon login in user can save a book and view a page of saved books.<br>
 Cick in this link for heroku application the image below is just an example of the page. [Heroku](https://secret-retreat-93165.herokuapp.com/signup/)<br>
+
 <img src='./client/public/main.png'>
 
 
